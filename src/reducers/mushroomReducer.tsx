@@ -21,10 +21,12 @@ const mushroomSlice = createSlice({
             }
         },
         select: (state, action) => {
-            state.selectedMushroom.push(action.payload)
+            // state.selectedMushroom.push(action.payload)
+            const mushroomIngredient = action.payload;
+            state.selectedMushroom.push(mushroomIngredient);
         },
         deselect: (state, action) => {
-            state.selectedMushroom = action.payload;
+            state.selectedMushroom.pop();
         }
     },
 });

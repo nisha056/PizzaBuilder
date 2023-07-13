@@ -21,10 +21,11 @@ const chickenSlice = createSlice({
             }
         },
         select: (state, action) => {
-            state.selectedChicken.push(action.payload)
+            const chickenIngredient = action.payload;
+            state.selectedChicken.push(chickenIngredient);
         },
         deselect: (state, action) => {
-            state.selectedChicken = action.payload;
+            state.selectedChicken.pop();
         }
     },
 });

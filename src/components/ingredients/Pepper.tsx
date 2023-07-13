@@ -4,14 +4,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { increment, decrement, select, deselect } from '../../reducers/pepperReducer';
 
 const Pepper: React.FC = () => {
+    const pepperIngredient = {
+        id: 5,
+        name: 'Pepper',
+        imagePepper: "https://cdn0.iconfinder.com/data/icons/herbs-spices-color/290/02-512.png"
+    }
     const count = useSelector(
         (state: { pepper: { count: number } }) =>
             state.pepper.count
     );
-    const selectedPepper = useSelector(
-        (state: { pepper: { selectedPepper: string[] } }) =>
-            state.pepper.selectedPepper
-    )
     const dispatch = useDispatch();
 
     const handleIncrement = () => {
@@ -22,13 +23,10 @@ const Pepper: React.FC = () => {
         dispatch(decrement());
     };
     const handleSelection = () => {
-        dispatch(select('pepper'));
+        dispatch(select(pepperIngredient));
     };
     const handleDeselection = () => {
-        if (selectedPepper.length > 0) {
-            const updatedPepper = selectedPepper.slice(0, selectedPepper.length - 1);
-            dispatch(deselect(updatedPepper))
-        }
+        dispatch(deselect(pepperIngredient))
     }
 
     return (

@@ -20,11 +20,12 @@ const tomatoSlice = createSlice({
             }
         },
         select: (state, action) => {
-            state.selectedTomato.push(action.payload)
+            const tomatoIngredient = action.payload;
+            state.selectedTomato.push(tomatoIngredient)
         },
 
         deselect: (state, action) => {
-            state.selectedTomato = action.payload;
+            state.selectedTomato.pop()
         },
     },
 });

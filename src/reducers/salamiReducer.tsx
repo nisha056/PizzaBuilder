@@ -20,11 +20,13 @@ const salamiSlice = createSlice({
             }
         },
         select: (state, action) => {
-            state.selectedSalami.push(action.payload)
+            // state.selectedSalami.push(action.payload)
+            const salamiIngredient = action.payload;
+            state.selectedSalami.push(salamiIngredient);
         },
 
         deselect: (state, action) => {
-            state.selectedSalami = action.payload;
+            state.selectedSalami.pop();
         }
     },
 });

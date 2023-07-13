@@ -21,10 +21,11 @@ const oliveSlice = createSlice({
             }
         },
         select: (state, action) => {
-            state.selectedOlive.push(action.payload);
+            const oliveIngredient = action.payload
+            state.selectedOlive.push(oliveIngredient);
         },
         deselect: (state, action) => {
-            state.selectedOlive = action.payload;
+            state.selectedOlive.pop();
         }
     },
 });

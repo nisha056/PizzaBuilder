@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { increment, decrement, select, deselect } from '../../reducers/chickenReducer';
 
 const Chicken: React.FC = () => {
+    const chickenIngredient = {
+        id: 3,
+        name: "Chicken",
+        imageChicken: "https://cdn4.iconfinder.com/data/icons/food-drinks-vol-2/66/98-512.png"
+    }
     const count = useSelector(
         (state: { chicken: { count: number } }) =>
             state.chicken.count
-    );
-    const selectedChicken = useSelector(
-        (state: { chicken: { selectedChicken: string[] } }) =>
-            state.chicken.selectedChicken
     );
     const dispatch = useDispatch();
 
@@ -22,13 +23,10 @@ const Chicken: React.FC = () => {
         dispatch(decrement());
     };
     const handleSelection = () => {
-        dispatch(select('chicken'))
+        dispatch(select(chickenIngredient))
     };
     const handleDeselection = () => {
-        if (selectedChicken.length > 0) {
-            const updatedChicken = selectedChicken.slice(0, selectedChicken.length - 1);
-            dispatch(deselect(updatedChicken));
-        }
+        dispatch(deselect(chickenIngredient));
     }
 
     return (

@@ -20,10 +20,11 @@ const pepperSlice = createSlice({
             }
         },
         select: (state, action) => {
-            state.selectedPepper.push(action.payload);
+            const pepperIngredient = action.payload;
+            state.selectedPepper.push(pepperIngredient);
         },
         deselect: (state, action) => {
-            state.selectedPepper = action.payload;
+            state.selectedPepper.pop();
         }
     },
 });

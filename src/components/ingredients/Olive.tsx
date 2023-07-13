@@ -3,7 +3,12 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { increment, decrement, select, deselect } from '../../reducers/oliveReducer';
 
-const Olive: React.FC = () => {
+const Olive = () => {
+    const oliveIngredient = {
+        id: 4,
+        name: "olive",
+        imageOlive: "https://cdn3.iconfinder.com/data/icons/veggies/512/olive.png"
+    }
     const count = useSelector(
         (state: { olive: { count: number } }) =>
             state.olive.count
@@ -22,13 +27,10 @@ const Olive: React.FC = () => {
         dispatch(decrement());
     };
     const handleSelection = () => {
-        dispatch(select('olive'))
+        dispatch(select(oliveIngredient))
     };
     const handleDeselection = () => {
-        if (selectedOlive.length > 0) {
-            const updatedOlive = selectedOlive.slice(0, selectedOlive.length - 1);
-            dispatch(deselect(updatedOlive))
-        }
+        dispatch(deselect(oliveIngredient))
     }
 
     return (

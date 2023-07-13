@@ -3,14 +3,15 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { increment, decrement, select, deselect } from '../../reducers/mushroomReducer';
 
-const Mushroom: React.FC = () => {
+const Mushroom = () => {
+    const mushroomIngredient = {
+        id: 2,
+        name: 'Mushroom',
+        imagemushroom: "https://cdn0.iconfinder.com/data/icons/vegetables-ii-color/290/21-512.png"
+    };
     const count = useSelector(
         (state: { mushroom: { count: number } }) =>
             state.mushroom.count
-    );
-    const selectedMushroom = useSelector(
-        (state: { mushroom: { selectedMushroom: string[] } }) =>
-            state.mushroom.selectedMushroom
     );
     const dispatch = useDispatch();
 
@@ -22,13 +23,10 @@ const Mushroom: React.FC = () => {
         dispatch(decrement());
     };
     const handleSelection = () => {
-        dispatch(select('mushroom'))
+        dispatch(select(mushroomIngredient))
     };
     const handleDeselection = () => {
-        if (selectedMushroom.length > 0) {
-            const updatedSelectedMushroom = selectedMushroom.slice(0, selectedMushroom.length - 1);
-            dispatch(deselect(updatedSelectedMushroom));
-        }
+        dispatch(deselect(mushroomIngredient));
     }
 
     return (

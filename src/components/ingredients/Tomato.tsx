@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { increment, decrement, select, deselect } from '../../reducers/tomatoReducer';
 
 const Tomato: React.FC = () => {
+    const tomatoIngredient = {
+        id: 8,
+        name: 'Tomato',
+        imageTomato: "https://cdn2.iconfinder.com/data/icons/pizza-toppings/200/tomato-512.png"
+    };
     const count = useSelector(
         (state: { tomato: { count: number } }) =>
             state.tomato.count
-    );
-    const selectedTomato = useSelector(
-        (state: { tomato: { selectedTomato: string[] } }) =>
-            state.tomato.selectedTomato
     );
     const dispatch = useDispatch();
 
@@ -22,13 +23,11 @@ const Tomato: React.FC = () => {
         dispatch(decrement());
     };
     const handleSelection = () => {
-        dispatch(select('tomato'))
+        dispatch(select(tomatoIngredient))
     };
     const handleDeselection = () => {
-        if (selectedTomato.length > 0) {
-            const updatedTomato = selectedTomato.slice(0, selectedTomato.length - 1);
-            dispatch(deselect(updatedTomato));
-        }
+        dispatch(deselect(tomatoIngredient));
+
     }
 
     return (

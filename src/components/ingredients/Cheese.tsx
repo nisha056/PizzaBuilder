@@ -3,7 +3,12 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { increment, decrement, select, deselect } from '../../reducers/CheeseReducer';
 
-const Cheese: React.FC = () => {
+const Cheese = () => {
+    const cheeseIngredient = {
+        id: 7,
+        name: "Cheese",
+        imageCheese: "https://cdn3.iconfinder.com/data/icons/food-1-11/128/food-07-512.png"
+    }
     const count = useSelector(
         (state: { cheese: { count: number } }) =>
             state.cheese.count
@@ -22,13 +27,10 @@ const Cheese: React.FC = () => {
         dispatch(decrement());
     };
     const handleSelection = () => {
-        dispatch(select('Cheese'))
+        dispatch(select(cheeseIngredient))
     };
     const handleDeselection = () => {
-        if (selectedCheese.length > 0) {
-            const updatedCheese = selectedCheese.slice(0, selectedCheese.length - 1);
-            dispatch(deselect(updatedCheese));
-        }
+        dispatch(deselect(cheeseIngredient));
     }
 
     return (

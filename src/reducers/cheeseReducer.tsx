@@ -21,10 +21,11 @@ const cheeseSlice = createSlice({
             }
         },
         select: (state, action) => {
-            state.selectedCheese.push(action.payload)
+            const cheeseIngredient = action.payload;
+            state.selectedCheese.push(cheeseIngredient)
         },
         deselect: (state, action) => {
-            state.selectedCheese = action.payload;
+            state.selectedCheese.pop()
         }
     },
 });
