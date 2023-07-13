@@ -1,10 +1,12 @@
 import React from "react";
+import Cheese from "../ingredients/Cheese";
 import Chicken from "../ingredients/Chicken";
 import Mushroom from "../ingredients/Mushroom";
 import Olive from "../ingredients/Olive";
 import Pepper from "../ingredients/Pepper";
 import Pepperoni from "../ingredients/Pepperoni";
 import Salami from "../ingredients/Salami";
+import Tomato from "../ingredients/Tomato";
 
 import Pizza from "./Pizza-UI";
 
@@ -20,6 +22,8 @@ const Home = () => {
                     <Olive />
                     <Pepper />
                     <Pepperoni />
+                    <Cheese />
+                    <Tomato />
                 </div>
                 <div className="mx-20  my-10 ">
                     <div className="mx-20 my-10 ">

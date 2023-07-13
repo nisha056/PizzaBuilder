@@ -18,8 +18,14 @@ const pepperSlice = createSlice({
         decrement: (state) => {
             state.count -= 1;
         },
+        select: (state, action) => {
+            state.selectedPepper.push(action.payload);
+        },
+        deselect: (state, action) => {
+            state.selectedPepper = action.payload;
+        }
     },
 });
 
-export const { increment, decrement } = pepperSlice.actions;
+export const { increment, decrement, select, deselect } = pepperSlice.actions;
 export default pepperSlice.reducer;

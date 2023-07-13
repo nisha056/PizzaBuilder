@@ -5,6 +5,8 @@ import chickenReducer from '../reducers/chickenReducer';
 import oliveReducer from '../reducers/oliveReducer';
 import pepperReducer from '../reducers/pepperReducer';
 import pepporoniReducer from '../reducers/pepperoniReducer';
+import cheeseReducer from '../reducers/cheeseReducer';
+import tomatoReducer from '../reducers/tomatoReducer';
 
 const store = configureStore({
     reducer: {
@@ -14,6 +16,8 @@ const store = configureStore({
         olive: oliveReducer,
         pepper: pepperReducer,
         pepperoni: pepporoniReducer,
+        cheese: cheeseReducer,
+        tomato: tomatoReducer,
     },
 });
 

@@ -1,7 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-const initialState = {
+interface PepperoniState {
+    count: number;
+    selectedPepperoni: string[];
+}
+const initialState: PepperoniState = {
     count: 20,
+    selectedPepperoni: [],
 };
 
 const pepperoniSlice = createSlice({
@@ -14,8 +18,14 @@ const pepperoniSlice = createSlice({
         decrement: (state) => {
             state.count -= 1;
         },
+        select: (state, action) => {
+            state.selectedPepperoni.push(action.payload);
+        },
+        deselect: (state, action) => {
+            state.selectedPepperoni = action.payload;
+        }
     },
 });
 
-export const { increment, decrement } = pepperoniSlice.actions;
+export const { increment, decrement, select, deselect } = pepperoniSlice.actions;
 export default pepperoniSlice.reducer;
