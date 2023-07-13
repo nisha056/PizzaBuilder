@@ -3,12 +3,10 @@ interface TomatoState {
     count: number;
     selectedTomato: string[];
 }
-
 const initialState: TomatoState = {
     count: 10,
     selectedTomato: [],
 };
-
 const tomatoSlice = createSlice({
     name: 'tomato',
     initialState,
@@ -17,7 +15,9 @@ const tomatoSlice = createSlice({
             state.count += 1;
         },
         decrement: (state) => {
-            state.count -= 1;
+            if (state.count > 0) {
+                state.count -= 1;
+            }
         },
         select: (state, action) => {
             state.selectedTomato.push(action.payload)
@@ -26,9 +26,6 @@ const tomatoSlice = createSlice({
         deselect: (state, action) => {
             state.selectedTomato = action.payload;
         },
-
-
-
     },
 });
 

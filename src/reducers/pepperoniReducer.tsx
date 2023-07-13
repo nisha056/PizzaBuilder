@@ -7,7 +7,6 @@ const initialState: PepperoniState = {
     count: 20,
     selectedPepperoni: [],
 };
-
 const pepperoniSlice = createSlice({
     name: 'pepperoli',
     initialState,
@@ -16,7 +15,9 @@ const pepperoniSlice = createSlice({
             state.count += 1;
         },
         decrement: (state) => {
-            state.count -= 1;
+            if (state.count > 0) {
+                state.count -= 1;
+            }
         },
         select: (state, action) => {
             state.selectedPepperoni.push(action.payload);

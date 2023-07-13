@@ -7,7 +7,6 @@ const initialState: PepperState = {
     count: 20,
     selectedPepper: [],
 };
-
 const pepperSlice = createSlice({
     name: 'pepper',
     initialState,
@@ -16,7 +15,9 @@ const pepperSlice = createSlice({
             state.count += 1;
         },
         decrement: (state) => {
-            state.count -= 1;
+            if (state.count > 0) {
+                state.count -= 1;
+            }
         },
         select: (state, action) => {
             state.selectedPepper.push(action.payload);

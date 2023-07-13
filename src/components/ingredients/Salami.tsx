@@ -24,9 +24,6 @@ const Salami: React.FC = () => {
     const handleSelection = () => {
         dispatch(select('salami'))
     };
-    // const handleDeselection = () => {
-    //     dispatch(deselect('salami'));
-    // }
     const handleDeselection = () => {
         if (selectedSalami.length > 0) {
             const updatedSelectedSalami = selectedSalami.slice(0, selectedSalami.length - 1);
