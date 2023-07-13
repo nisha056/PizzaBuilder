@@ -4,7 +4,7 @@ interface PepperoniState {
     selectedPepperoni: string[];
 }
 const initialState: PepperoniState = {
-    count: 20,
+    count: 0,
     selectedPepperoni: [],
 };
 const pepperoniSlice = createSlice({
@@ -20,10 +20,11 @@ const pepperoniSlice = createSlice({
             }
         },
         select: (state, action) => {
-            state.selectedPepperoni.push(action.payload);
+            const pepperoniIngredient = action.payload;
+            state.selectedPepperoni.push(pepperoniIngredient);
         },
         deselect: (state, action) => {
-            state.selectedPepperoni = action.payload;
+            state.selectedPepperoni.pop();
         }
     },
 });

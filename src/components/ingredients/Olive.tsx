@@ -7,18 +7,13 @@ const Olive = () => {
     const oliveIngredient = {
         id: 4,
         name: "olive",
-        imageOlive: "https://cdn3.iconfinder.com/data/icons/veggies/512/olive.png"
+        imageOlive: "https://cdn2.iconfinder.com/data/icons/fruit-and-vegetable-64/340/oil_olive_natural_healthy_organic_vegetarian-512.png"
     }
     const count = useSelector(
         (state: { olive: { count: number } }) =>
             state.olive.count
     );
-    const selectedOlive = useSelector(
-        (state: { olive: { selectedOlive: string[] } }) =>
-            state.olive.selectedOlive
-    )
     const dispatch = useDispatch();
-
     const handleIncrement = () => {
         dispatch(increment());
     };

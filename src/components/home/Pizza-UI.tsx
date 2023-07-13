@@ -23,7 +23,7 @@ const Pizza: React.FC = () => {
             state.pepper.selectedPepper
     );
     const selectedPepperoni = useSelector(
-        (state: { pepperoni: { selectedPepperoni: string[] } }) =>
+        (state: { pepperoni: { selectedPepperoni: { id: number, name: string, imagePepperoni: string }[] } }) =>
             state.pepperoni.selectedPepperoni
     );
     const selectedCheese = useSelector(
@@ -34,59 +34,157 @@ const Pizza: React.FC = () => {
         (state: { tomato: { selectedTomato: { id: number, name: string, imageTomato: string }[] } }) =>
             state.tomato.selectedTomato
     );
-
+    const getRandomPosition = (minLeft: number, maxLeft: number, minTop: number, maxTop: number) => {
+        const left = Math.floor(Math.random() * (maxLeft - minLeft + 1)) + minLeft;
+        const top = Math.floor(Math.random() * (maxTop - minTop + 1)) + minTop;
+        return { left, top };
+    };
 
     return (
         <div className="w-80 h-80 bg-red-300 rounded-full relative">
-            {selectedSalami.map((salami, index) => (
+
+            {/* {selectedSalami.map((salami, index) => (
                 <img key={index} src={salami.imagesalami} className={`absolute h-20`} style={{ top: `${index * 20}%`, left: `${index * 10}%` }} />
-            ))}
-            {
-                selectedMushroom.map((mushroom) => (
-                    <img key={mushroom.id} src={mushroom.imagemushroom} className="absolute top-1/4 left-0  h-20 " />
-                ))
-            }
-            {
-                selectedChicken.map((chicken) => (
-                    <img key={chicken.id} src={chicken.imageChicken} className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-20 rounded-full" />
-                ))
-            }
+              
 
-            {/* {
-                selectedOlive.length > 0 && (
-                    <span className="bg-yellow-400 absolute top-1/2 right-1/2 transform -translate-y-1/2">
-                        {selectedOlive.join(",")}
-                    </span>
-                )
-            } */}
-            {
-                selectedOlive.map((olive) => (
-                    <img key={olive.id} src={olive.imageOlive} className="absolute top-1/2 right-1/2  h-20 transform -translate-y-1/2" />
-                ))
-            }
-            {
-                selectedPepper.map((pepper) => (
-                    <img key={pepper.id} src={pepper.imagePepper} className="absolute top-1/2 left-0  h-20 " />
-                ))
-            }
-            {
-                selectedPepperoni.length > 0 && (
-                    <span className="bg-green-500 absolute top-3/4 left-0 transform -translate-x-0">
-                        {selectedPepperoni.join(',')}
-                    </span>
-                )
+            ))} */}
+            {/* {selectedSalami.slice(0, 5).map((salami, index) => {
+                const minLeft = 15;
+                const minTop = 15;
+                const maxLeft = 60;
+                const maxTop = 70;
 
-            }
-            {
-                selectedCheese.map((cheese) => (
-                    <img key={cheese.id} src={cheese.imageCheese} className="absolute top-1/4 right-0  h-20 " />
-                ))
-            }
-            {
-                selectedTomato.map((tomato) => (
-                    <img key={tomato.id} src={tomato.imageTomato} className="absolute top-3/4 right-0 transform -translate-x-1/2 -translate-y-1/2 h-20 rounded-full" />
-                ))
-            }
+                let left, top;
+
+                if (index < 6) {
+                    // Use fixed positions for already rendered images
+                    left = index * 10;
+                    top = index * 20;
+                } else {
+                    // Generate random positions for new images
+                    left = Math.floor(Math.random() * (maxLeft - minLeft + 1)) + minLeft;
+                    top = Math.floor(Math.random() * (maxTop - minTop + 1)) + minTop;
+                }
+
+                return (
+                    <img
+                        key={index}
+                        src={salami.imagesalami}
+                        className="absolute h-20"
+                        style={{ top: `${top}%`, left: `${left}%` }}
+                    />
+                );
+            })} */}
+            {selectedSalami.map((salami, index) => {
+                const { left, top } = index < 5 ? { left: index * 10, top: index * 20 } : getRandomPosition(15, 60, 4, 70);
+
+                return (
+                    <img
+                        key={index}
+                        src={salami.imagesalami}
+                        className="absolute h-20"
+                        style={{ top: `${top}%`, left: `${left}%` }}
+                    />
+                );
+            })}
+            {selectedMushroom.map((mushroom, index) => {
+                const { left, top } = index < 5 ? {
+                    left: 70, top: index * 30
+                } : getRandomPosition(15, 60, 4, 70);
+
+                return (
+                    <img
+                        key={index}
+                        src={mushroom.imagemushroom}
+                        className="absolute h-20"
+                        style={{ top: `${top}%`, left: `${left}%` }}
+                    />
+                );
+            })}
+            {selectedChicken.map((chicken, index) => {
+                const { left, top } = index < 5 ? {
+                    left: 50, top: index * 20
+                } : getRandomPosition(15, 60, 4, 70);
+
+                return (
+                    <img
+                        key={index}
+                        src={chicken.imageChicken}
+                        className="absolute h-20"
+                        style={{ top: `${top}%`, left: `${left}%` }}
+                    />
+                );
+            })}
+            {selectedOlive.map((olive, index) => {
+                const { left, top } = index < 3 ? {
+                    left: index * 30, top: 40
+                } : getRandomPosition(15, 60, 4, 70);
+
+                return (
+                    <img
+                        key={index}
+                        src={olive.imageOlive}
+                        className="absolute h-20"
+                        style={{ top: `${top}%`, left: `${left}%` }}
+                    />
+                );
+            })}
+            {selectedPepper.map((pepper, index) => {
+                const { left, top } = index < 3 ? {
+                    left: 15, top: index * 30
+                } : getRandomPosition(15, 60, 4, 70);
+
+                return (
+                    <img
+                        key={index}
+                        src={pepper.imagePepper}
+                        className="absolute h-20"
+                        style={{ top: `${top}%`, left: `${left}%` }}
+                    />
+                );
+            })}
+            {selectedPepperoni.map((pepperoni, index) => {
+                const { left, top } = index < 5 ? {
+                    left: index * 20, top: 60
+                } : getRandomPosition(15, 60, 4, 70);
+
+                return (
+                    <img
+                        key={index}
+                        src={pepperoni.imagePepperoni}
+                        className="absolute h-20"
+                        style={{ top: `${top}%`, left: `${left}%` }}
+                    />
+                );
+            })}
+            {selectedCheese.map((cheese, index) => {
+                const { left, top } = index < 5 ? {
+                    left: 40, top: index * 20
+                } : getRandomPosition(15, 60, 4, 70);
+
+                return (
+                    <img
+                        key={index}
+                        src={cheese.imageCheese}
+                        className="absolute h-20"
+                        style={{ top: `${top}%`, left: `${left}%` }}
+                    />
+                );
+            })}
+            {selectedTomato.map((tomato, index) => {
+                const { left, top } = index < 5 ? {
+                    left: index * 30, top: 20
+                } : getRandomPosition(15, 60, 4, 70);
+
+                return (
+                    <img
+                        key={index}
+                        src={tomato.imageTomato}
+                        className="absolute h-20"
+                        style={{ top: `${top}%`, left: `${left}%` }}
+                    />
+                );
+            })}
         </div >
     );
 };

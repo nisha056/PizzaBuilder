@@ -4,7 +4,7 @@ interface MushroomState {
     selectedMushroom: string[];
 }
 const initialState: MushroomState = {
-    count: 20,
+    count: 0,
     selectedMushroom: [],
 };
 

@@ -4,7 +4,7 @@ interface ChickenState {
     selectedChicken: string[];
 }
 const initialState: ChickenState = {
-    count: 20,
+    count: 0,
     selectedChicken: [],
 };
 

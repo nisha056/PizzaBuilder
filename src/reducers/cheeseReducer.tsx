@@ -4,7 +4,7 @@ interface CheeseState {
     selectedCheese: string[];
 }
 const initialState: CheeseState = {
-    count: 20,
+    count: 0,
     selectedCheese: [],
 };
 

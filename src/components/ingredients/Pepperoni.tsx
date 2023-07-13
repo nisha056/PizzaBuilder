@@ -3,14 +3,15 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { increment, decrement, select, deselect } from '../../reducers/pepperoniReducer';
 
-const Pepperoni: React.FC = () => {
+const Pepperoni = () => {
+    const pepperoniIngredient = {
+        id: 6,
+        name: "Pepperoni",
+        imagePepperoni: "https://cdn0.iconfinder.com/data/icons/italian-pizza-2/64/PIZZA_4-13-512.png"
+    }
     const count = useSelector(
         (state: { pepperoni: { count: number } }) =>
             state.pepperoni.count
-    );
-    const selectedPepperoni = useSelector(
-        (state: { pepperoni: { selectedPepperoni: string[] } }) =>
-            state.pepperoni.selectedPepperoni
     );
     const dispatch = useDispatch();
 
@@ -22,13 +23,10 @@ const Pepperoni: React.FC = () => {
         dispatch(decrement());
     };
     const handleSelection = () => {
-        dispatch(select('pepperoni'));
+        dispatch(select(pepperoniIngredient));
     };
     const handleDeselection = () => {
-        if (selectedPepperoni.length > 0) {
-            const updatedPepperoni = selectedPepperoni.slice(0, selectedPepperoni.length - 1);
-            dispatch(deselect(updatedPepperoni));
-        }
+        dispatch(deselect(pepperoniIngredient));
     }
 
     return (

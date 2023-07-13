@@ -4,7 +4,7 @@ interface TomatoState {
     selectedTomato: string[];
 }
 const initialState: TomatoState = {
-    count: 10,
+    count: 0,
     selectedTomato: [],
 };
 const tomatoSlice = createSlice({

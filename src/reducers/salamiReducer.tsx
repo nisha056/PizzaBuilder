@@ -4,7 +4,7 @@ interface SalamiState {
     selectedSalami: string[];
 }
 const initialState: SalamiState = {
-    count: 10,
+    count: 0,
     selectedSalami: [],
 };
 const salamiSlice = createSlice({

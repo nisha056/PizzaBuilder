@@ -4,7 +4,7 @@ interface OliveState {
     selectedOlive: string[];
 }
 const initialState: OliveState = {
-    count: 30,
+    count: 0,
     selectedOlive: [],
 };
 

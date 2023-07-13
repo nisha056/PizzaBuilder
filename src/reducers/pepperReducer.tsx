@@ -4,7 +4,7 @@ interface PepperState {
     selectedPepper: string[];
 }
 const initialState: PepperState = {
-    count: 20,
+    count: 0,
     selectedPepper: [],
 };
 const pepperSlice = createSlice({
