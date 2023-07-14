@@ -25,10 +25,7 @@ const Salami = () => {
         dispatch(select(salamiIngredient));
     }
     const handleDeselection = () => {
-        // if (selectedSalami.length > 0) {
-        //     const updatedSalami = selectedSalami.slice(0, selectedSalami.length - 1);
         dispatch(deselect());
-        // }
     }
 
     return (

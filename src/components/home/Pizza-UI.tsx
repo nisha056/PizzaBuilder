@@ -56,7 +56,7 @@ const Pizza: React.FC = () => {
             })}
             {selectedMushroom.map((mushroom, index) => {
                 const { left, top } = index < 5 ? {
-                    left: 70, top: index * 10
+                    left: 62, top: index * 10
                 } : getRandomPosition(15, 60, 4, 70);
 
                 return (
@@ -70,7 +70,7 @@ const Pizza: React.FC = () => {
             })}
             {selectedChicken.map((chicken, index) => {
                 const { left, top } = index < 5 ? {
-                    left: 60, top: index * 10
+                    left: 55, top: index * 10
                 } : getRandomPosition(15, 60, 4, 70);
 
                 return (
