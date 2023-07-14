@@ -24,7 +24,7 @@ const cheeseSlice = createSlice({
             const cheeseIngredient = action.payload;
             state.selectedCheese.push(cheeseIngredient)
         },
-        deselect: (state, action) => {
+        deselect: (state) => {
             state.selectedCheese.pop()
         }
     },

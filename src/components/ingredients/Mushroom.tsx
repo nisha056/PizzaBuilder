@@ -26,7 +26,7 @@ const Mushroom = () => {
         dispatch(select(mushroomIngredient))
     };
     const handleDeselection = () => {
-        dispatch(deselect(mushroomIngredient));
+        dispatch(deselect());
     }
 
     return (

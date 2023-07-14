@@ -23,7 +23,7 @@ const pepperoniSlice = createSlice({
             const pepperoniIngredient = action.payload;
             state.selectedPepperoni.push(pepperoniIngredient);
         },
-        deselect: (state, action) => {
+        deselect: (state) => {
             state.selectedPepperoni.pop();
         }
     },

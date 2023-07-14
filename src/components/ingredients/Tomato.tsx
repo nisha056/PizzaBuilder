@@ -26,7 +26,7 @@ const Tomato: React.FC = () => {
         dispatch(select(tomatoIngredient))
     };
     const handleDeselection = () => {
-        dispatch(deselect(tomatoIngredient));
+        dispatch(deselect());
 
     }
 

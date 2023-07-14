@@ -26,7 +26,7 @@ const Pepperoni = () => {
         dispatch(select(pepperoniIngredient));
     };
     const handleDeselection = () => {
-        dispatch(deselect(pepperoniIngredient));
+        dispatch(deselect());
     }
 
     return (

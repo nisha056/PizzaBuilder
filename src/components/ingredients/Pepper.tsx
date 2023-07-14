@@ -26,7 +26,7 @@ const Pepper: React.FC = () => {
         dispatch(select(pepperIngredient));
     };
     const handleDeselection = () => {
-        dispatch(deselect(pepperIngredient))
+        dispatch(deselect())
     }
 
     return (

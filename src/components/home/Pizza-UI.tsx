@@ -42,39 +42,6 @@ const Pizza: React.FC = () => {
 
     return (
         <div className="w-80 h-80 bg-red-300 rounded-full relative">
-
-            {/* {selectedSalami.map((salami, index) => (
-                <img key={index} src={salami.imagesalami} className={`absolute h-20`} style={{ top: `${index * 20}%`, left: `${index * 10}%` }} />
-              
-
-            ))} */}
-            {/* {selectedSalami.slice(0, 5).map((salami, index) => {
-                const minLeft = 15;
-                const minTop = 15;
-                const maxLeft = 60;
-                const maxTop = 70;
-
-                let left, top;
-
-                if (index < 6) {
-                    // Use fixed positions for already rendered images
-                    left = index * 10;
-                    top = index * 20;
-                } else {
-                    // Generate random positions for new images
-                    left = Math.floor(Math.random() * (maxLeft - minLeft + 1)) + minLeft;
-                    top = Math.floor(Math.random() * (maxTop - minTop + 1)) + minTop;
-                }
-
-                return (
-                    <img
-                        key={index}
-                        src={salami.imagesalami}
-                        className="absolute h-20"
-                        style={{ top: `${top}%`, left: `${left}%` }}
-                    />
-                );
-            })} */}
             {selectedSalami.map((salami, index) => {
                 const { left, top } = index < 4 ? { left: 30, top: index * 10 } : getRandomPosition(15, 60, 4, 70);
 

@@ -25,7 +25,7 @@ const Olive = () => {
         dispatch(select(oliveIngredient))
     };
     const handleDeselection = () => {
-        dispatch(deselect(oliveIngredient))
+        dispatch(deselect())
     }
 
     return (

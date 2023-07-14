@@ -13,10 +13,6 @@ const Cheese = () => {
         (state: { cheese: { count: number } }) =>
             state.cheese.count
     );
-    const selectedCheese = useSelector(
-        (state: { cheese: { selectedCheese: string[] } }) =>
-            state.cheese.selectedCheese
-    );
     const dispatch = useDispatch();
 
     const handleIncrement = () => {
@@ -30,7 +26,7 @@ const Cheese = () => {
         dispatch(select(cheeseIngredient))
     };
     const handleDeselection = () => {
-        dispatch(deselect(cheeseIngredient));
+        dispatch(deselect());
     }
 
     return (

@@ -24,7 +24,7 @@ const tomatoSlice = createSlice({
             state.selectedTomato.push(tomatoIngredient)
         },
 
-        deselect: (state, action) => {
+        deselect: (state) => {
             state.selectedTomato.pop()
         },
     },

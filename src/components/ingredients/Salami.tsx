@@ -21,16 +21,13 @@ const Salami = () => {
     const handleDecrement = () => {
         dispatch(decrement());
     };
-    // const handleSelection = () => {
-    //     dispatch(select('salami'));
-    // };
     const handleSelection = () => {
         dispatch(select(salamiIngredient));
     }
     const handleDeselection = () => {
         // if (selectedSalami.length > 0) {
         //     const updatedSalami = selectedSalami.slice(0, selectedSalami.length - 1);
-        dispatch(deselect(salamiIngredient));
+        dispatch(deselect());
         // }
     }
 

@@ -23,7 +23,7 @@ const pepperSlice = createSlice({
             const pepperIngredient = action.payload;
             state.selectedPepper.push(pepperIngredient);
         },
-        deselect: (state, action) => {
+        deselect: (state) => {
             state.selectedPepper.pop();
         }
     },

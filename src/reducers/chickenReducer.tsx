@@ -24,7 +24,7 @@ const chickenSlice = createSlice({
             const chickenIngredient = action.payload;
             state.selectedChicken.push(chickenIngredient);
         },
-        deselect: (state, action) => {
+        deselect: (state) => {
             state.selectedChicken.pop();
         }
     },

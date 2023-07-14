@@ -24,7 +24,7 @@ const oliveSlice = createSlice({
             const oliveIngredient = action.payload
             state.selectedOlive.push(oliveIngredient);
         },
-        deselect: (state, action) => {
+        deselect: (state) => {
             state.selectedOlive.pop();
         }
     },
