@@ -1,7 +1,7 @@
 import { Add, Minus } from 'iconsax-react';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { increment, decrement, select, deselect } from '../../reducers/CheeseReducer';
+import { increment, decrement, select, deselect } from '../../reducers/cheeseReducer';
 
 const Cheese = () => {
     const cheeseIngredient = {
