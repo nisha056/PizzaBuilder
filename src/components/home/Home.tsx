@@ -22,7 +22,7 @@ const Home = () => {
     };
     return (
         // <div className="bg-cover bg-center h-screen" style={{ backgroundImage: `url(${Image})` }}>
-        <div className="bg-gray-300 h-screen">
+        <div>
             <h1 className="text-2xl font-bold  flex items-center justify-center py-5 text-sky-500">Pizza Builder</h1>
             <div className="flex gap-20">
                 <div className="flex flex-col gap-5">
@@ -42,7 +42,7 @@ const Home = () => {
                         <Modal
                             opened={showModal}
                             onClose={handleModalClose}
-                            padding="md"
+                            padding="xl"
                         >
                             <h2 className="text-2xl font-bold my-5  flex justify-center text-sky-500">Your Pizza is ready now ! </h2>
                             <div className="flex items-center justify-center">
