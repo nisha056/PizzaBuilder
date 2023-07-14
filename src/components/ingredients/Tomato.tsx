@@ -7,7 +7,7 @@ const Tomato: React.FC = () => {
     const tomatoIngredient = {
         id: 8,
         name: 'Tomato',
-        imageTomato: "https://cdn2.iconfinder.com/data/icons/pizza-toppings/200/tomato-512.png"
+        imageTomato: "https://cdn4.iconfinder.com/data/icons/fruits-vegetables-color-2/128/tomato-slice-color-256.png"
     };
     const count = useSelector(
         (state: { tomato: { count: number } }) =>

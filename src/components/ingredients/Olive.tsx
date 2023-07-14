@@ -7,7 +7,7 @@ const Olive = () => {
     const oliveIngredient = {
         id: 4,
         name: "olive",
-        imageOlive: "https://cdn2.iconfinder.com/data/icons/fruit-and-vegetable-64/340/oil_olive_natural_healthy_organic_vegetarian-512.png"
+        imageOlive: "https://cdn1.iconfinder.com/data/icons/vegetables-62/500/SingleCartoonVegetablesYulia_2-64.png"
     }
     const count = useSelector(
         (state: { olive: { count: number } }) =>

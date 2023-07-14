@@ -7,7 +7,7 @@ const Pepperoni = () => {
     const pepperoniIngredient = {
         id: 6,
         name: "Pepperoni",
-        imagePepperoni: "https://cdn0.iconfinder.com/data/icons/italian-pizza-2/64/PIZZA_4-13-512.png"
+        imagePepperoni: "https://cdn0.iconfinder.com/data/icons/food-flat-8/64/pepperoni-food-meat-512.png"
     }
     const count = useSelector(
         (state: { pepperoni: { count: number } }) =>

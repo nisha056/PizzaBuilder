@@ -76,111 +76,111 @@ const Pizza: React.FC = () => {
                 );
             })} */}
             {selectedSalami.map((salami, index) => {
-                const { left, top } = index < 5 ? { left: index * 10, top: index * 20 } : getRandomPosition(15, 60, 4, 70);
+                const { left, top } = index < 4 ? { left: 30, top: index * 10 } : getRandomPosition(15, 60, 4, 70);
 
                 return (
                     <img
                         key={index}
                         src={salami.imagesalami}
-                        className="absolute h-20"
+                        className="absolute h-10"
                         style={{ top: `${top}%`, left: `${left}%` }}
                     />
                 );
             })}
             {selectedMushroom.map((mushroom, index) => {
                 const { left, top } = index < 5 ? {
-                    left: 70, top: index * 30
+                    left: 70, top: index * 10
                 } : getRandomPosition(15, 60, 4, 70);
 
                 return (
                     <img
                         key={index}
                         src={mushroom.imagemushroom}
-                        className="absolute h-20"
+                        className="absolute h-9"
                         style={{ top: `${top}%`, left: `${left}%` }}
                     />
                 );
             })}
             {selectedChicken.map((chicken, index) => {
                 const { left, top } = index < 5 ? {
-                    left: 50, top: index * 20
+                    left: 60, top: index * 10
                 } : getRandomPosition(15, 60, 4, 70);
 
                 return (
                     <img
                         key={index}
                         src={chicken.imageChicken}
-                        className="absolute h-20"
+                        className="absolute h-6"
                         style={{ top: `${top}%`, left: `${left}%` }}
                     />
                 );
             })}
             {selectedOlive.map((olive, index) => {
                 const { left, top } = index < 3 ? {
-                    left: index * 30, top: 40
+                    left: index * 10, top: 48
                 } : getRandomPosition(15, 60, 4, 70);
 
                 return (
                     <img
                         key={index}
                         src={olive.imageOlive}
-                        className="absolute h-20"
+                        className="absolute h-10"
                         style={{ top: `${top}%`, left: `${left}%` }}
                     />
                 );
             })}
             {selectedPepper.map((pepper, index) => {
                 const { left, top } = index < 3 ? {
-                    left: 15, top: index * 30
+                    left: 18, top: index * 10
                 } : getRandomPosition(15, 60, 4, 70);
 
                 return (
                     <img
                         key={index}
                         src={pepper.imagePepper}
-                        className="absolute h-20"
+                        className="absolute h-9"
                         style={{ top: `${top}%`, left: `${left}%` }}
                     />
                 );
             })}
             {selectedPepperoni.map((pepperoni, index) => {
                 const { left, top } = index < 5 ? {
-                    left: index * 20, top: 60
+                    left: index * 15, top: 37
                 } : getRandomPosition(15, 60, 4, 70);
 
                 return (
                     <img
                         key={index}
                         src={pepperoni.imagePepperoni}
-                        className="absolute h-20"
+                        className="absolute h-10"
                         style={{ top: `${top}%`, left: `${left}%` }}
                     />
                 );
             })}
             {selectedCheese.map((cheese, index) => {
                 const { left, top } = index < 5 ? {
-                    left: 40, top: index * 20
+                    left: 45, top: index * 10
                 } : getRandomPosition(15, 60, 4, 70);
 
                 return (
                     <img
                         key={index}
                         src={cheese.imageCheese}
-                        className="absolute h-20"
+                        className="absolute h-8"
                         style={{ top: `${top}%`, left: `${left}%` }}
                     />
                 );
             })}
             {selectedTomato.map((tomato, index) => {
                 const { left, top } = index < 5 ? {
-                    left: index * 30, top: 20
+                    left: index * 10, top: 62
                 } : getRandomPosition(15, 60, 4, 70);
 
                 return (
                     <img
                         key={index}
                         src={tomato.imageTomato}
-                        className="absolute h-20"
+                        className="absolute h-6"
                         style={{ top: `${top}%`, left: `${left}%` }}
                     />
                 );

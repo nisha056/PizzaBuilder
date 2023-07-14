@@ -7,7 +7,7 @@ const Chicken: React.FC = () => {
     const chickenIngredient = {
         id: 3,
         name: "Chicken",
-        imageChicken: "https://cdn4.iconfinder.com/data/icons/food-drinks-vol-2/66/98-512.png"
+        imageChicken: "https://cdn3.iconfinder.com/data/icons/fast-food-filled-outline/448/chicken_fried_crispy_cooked_food_meal_fast_restaurant_junk_fastfood-512.png"
     }
     const count = useSelector(
         (state: { chicken: { count: number } }) =>
