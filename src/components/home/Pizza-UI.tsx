@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+
 const Pizza: React.FC = () => {
     const selectedSalami = useSelector(
         (state: { salami: { selectedSalami: { id: number, name: string, imagesalami: string }[] } }) =>
@@ -16,7 +17,6 @@ const Pizza: React.FC = () => {
     const selectedOlive = useSelector(
         (state: { olive: { selectedOlive: { id: number, name: string, imageOlive: string }[] } }) =>
             state.olive.selectedOlive
-
     );
     const selectedPepper = useSelector(
         (state: { pepper: { selectedPepper: { id: number, name: string, imagePepper: string }[] } }) =>
@@ -34,16 +34,56 @@ const Pizza: React.FC = () => {
         (state: { tomato: { selectedTomato: { id: number, name: string, imageTomato: string }[] } }) =>
             state.tomato.selectedTomato
     );
+
     const getRandomPosition = (minLeft: number, maxLeft: number, minTop: number, maxTop: number) => {
-        const left = Math.floor(Math.random() * (maxLeft - minLeft + 1)) + minLeft;
-        const top = Math.floor(Math.random() * (maxTop - minTop + 1)) + minTop;
+        let left: number, top: number;
+        let isOverlapping;
+
+        do {
+            left = Math.floor(Math.random() * (maxLeft - minLeft + 1)) + minLeft;
+            top = Math.floor(Math.random() * (maxTop - minTop + 1)) + minTop;
+
+            isOverlapping = false;
+            if (
+                (left >= 15 && left <= 60 && top >= 4 && top <= 70) &&
+                selectedSalami.some(salami => isOverlap(left, top, salami)) ||
+                selectedMushroom.some(mushroom => isOverlap(left, top, mushroom)) ||
+                selectedChicken.some(chicken => isOverlap(left, top, chicken)) ||
+                selectedOlive.some(olive => isOverlap(left, top, olive)) ||
+                selectedPepper.some(pepper => isOverlap(left, top, pepper)) ||
+                selectedPepperoni.some(pepperoni => isOverlap(left, top, pepperoni)) ||
+                selectedCheese.some(cheese => isOverlap(left, top, cheese)) ||
+                selectedTomato.some(tomato => isOverlap(left, top, tomato))
+            ) {
+                isOverlapping = true;
+            }
+        } while (isOverlapping);
+
         return { left, top };
+    };
+
+    const isOverlap = (left: number, top: number, ingredient: any) => {
+        const ingredientLeft = ingredient.left || 0;
+        const ingredientTop = ingredient.top || 0;
+
+        const ingredientWidth = 10;
+        const ingredientHeight = 10;
+
+        if (
+            left + ingredientWidth > ingredientLeft &&
+            left < ingredientLeft + ingredientWidth &&
+            top + ingredientHeight > ingredientTop &&
+            top < ingredientTop + ingredientHeight
+        ) {
+            return true; // Overlapping
+        }
+        return false; // Not overlapping
     };
 
     return (
         <div className="w-80 h-80 bg-red-300 rounded-full relative">
             {selectedSalami.map((salami, index) => {
-                const { left, top } = index < 4 ? { left: 30, top: index * 10 } : getRandomPosition(15, 60, 4, 70);
+                const { left, top } = getRandomPosition(15, 60, 4, 70);
 
                 return (
                     <img
@@ -54,105 +94,98 @@ const Pizza: React.FC = () => {
                     />
                 );
             })}
-            {selectedMushroom.map((mushroom, index) => {
-                const { left, top } = index < 5 ? {
-                    left: 62, top: index * 10
-                } : getRandomPosition(15, 60, 4, 70);
+
+            {selectedMushroom.map((mushroom) => {
+                const { left, top } = getRandomPosition(15, 60, 4, 70);
 
                 return (
                     <img
-                        key={index}
+                        key={mushroom.id}
                         src={mushroom.imagemushroom}
-                        className="absolute h-9"
+                        className="absolute top-1/4 left-0 h-10"
                         style={{ top: `${top}%`, left: `${left}%` }}
                     />
                 );
             })}
-            {selectedChicken.map((chicken, index) => {
-                const { left, top } = index < 5 ? {
-                    left: 55, top: index * 10
-                } : getRandomPosition(15, 60, 4, 70);
+
+            {selectedChicken.map((chicken) => {
+                const { left, top } = getRandomPosition(15, 60, 4, 70);
 
                 return (
                     <img
-                        key={index}
+                        key={chicken.id}
                         src={chicken.imageChicken}
-                        className="absolute h-6"
+                        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-10 rounded-full"
                         style={{ top: `${top}%`, left: `${left}%` }}
                     />
                 );
             })}
-            {selectedOlive.map((olive, index) => {
-                const { left, top } = index < 3 ? {
-                    left: index * 10, top: 48
-                } : getRandomPosition(15, 60, 4, 70);
+
+            {selectedOlive.map((olive) => {
+                const { left, top } = getRandomPosition(15, 60, 4, 70);
 
                 return (
                     <img
-                        key={index}
+                        key={olive.id}
                         src={olive.imageOlive}
-                        className="absolute h-10"
+                        className="absolute top-1/2 right-1/2 h-10 transform -translate-y-1/2"
                         style={{ top: `${top}%`, left: `${left}%` }}
                     />
                 );
             })}
-            {selectedPepper.map((pepper, index) => {
-                const { left, top } = index < 3 ? {
-                    left: 18, top: index * 10
-                } : getRandomPosition(15, 60, 4, 70);
+
+            {selectedPepper.map((pepper) => {
+                const { left, top } = getRandomPosition(15, 60, 4, 70);
 
                 return (
                     <img
-                        key={index}
+                        key={pepper.id}
                         src={pepper.imagePepper}
-                        className="absolute h-9"
+                        className="absolute top-1/2 left-0 h-10"
                         style={{ top: `${top}%`, left: `${left}%` }}
                     />
                 );
             })}
-            {selectedPepperoni.map((pepperoni, index) => {
-                const { left, top } = index < 5 ? {
-                    left: index * 15, top: 37
-                } : getRandomPosition(15, 60, 4, 70);
+
+            {selectedPepperoni.map((pepperoni) => {
+                const { left, top } = getRandomPosition(15, 60, 4, 70);
 
                 return (
                     <img
-                        key={index}
+                        key={pepperoni.id}
                         src={pepperoni.imagePepperoni}
-                        className="absolute h-10"
+                        className="absolute top-3/4 left-1/2 h-10"
                         style={{ top: `${top}%`, left: `${left}%` }}
                     />
                 );
             })}
-            {selectedCheese.map((cheese, index) => {
-                const { left, top } = index < 5 ? {
-                    left: 45, top: index * 10
-                } : getRandomPosition(15, 60, 4, 70);
+
+            {selectedCheese.map((cheese) => {
+                const { left, top } = getRandomPosition(15, 60, 4, 70);
 
                 return (
                     <img
-                        key={index}
+                        key={cheese.id}
                         src={cheese.imageCheese}
-                        className="absolute h-8"
+                        className="absolute top-1/4 right-0 h-10"
                         style={{ top: `${top}%`, left: `${left}%` }}
                     />
                 );
             })}
-            {selectedTomato.map((tomato, index) => {
-                const { left, top } = index < 5 ? {
-                    left: index * 10, top: 62
-                } : getRandomPosition(15, 60, 4, 70);
+
+            {selectedTomato.map((tomato) => {
+                const { left, top } = getRandomPosition(15, 60, 4, 70);
 
                 return (
                     <img
-                        key={index}
+                        key={tomato.id}
                         src={tomato.imageTomato}
-                        className="absolute h-6"
+                        className="absolute top-3/4 right-0 transform -translate-x-1/2 -translate-y-1/2 h-8 "
                         style={{ top: `${top}%`, left: `${left}%` }}
                     />
                 );
             })}
-        </div >
+        </div>
     );
 };
 
